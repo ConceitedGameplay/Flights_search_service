@@ -13,7 +13,7 @@ const startServer=async()=>{
     app.listen(PORT,()=>{
         console.log(`server started at ${PORT}`)
         const repo = new CityRepository()
-        repo.createCity({name:"Dehra Dun"})
+        repo.deletCity(1)
     })
 } 
 
