@@ -26,6 +26,31 @@ const create =async(req,res)=>{
     }
 
 }
+
+const bulkCreate = async(req,res)=>{
+    try {
+
+        const cities = await cityService.bulkCreateCity(req.body.cities);
+
+        return res.status(200).json({
+            data:cities,
+            success:true,
+            message:"successfully created the cities",
+            err:{}
+        })
+        
+    } catch (error) {
+
+        console.log(`error from controller layer: ${error}`)
+        return res.status(500).json({
+            data:{},
+            success:false,
+            message:'not able to create cities',
+            err:error
+        })
+        
+    }
+}
 const destroy =async(req,res)=>{
     try {
         const response = await cityService.deleteCity(req.params.id);
@@ -120,6 +145,7 @@ const getAll=async(req,res)=>{
 module.exports ={
     
     create,
+    bulkCreate,
     destroy,
     update,
     get,

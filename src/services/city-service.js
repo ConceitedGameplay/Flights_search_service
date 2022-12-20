@@ -20,6 +20,17 @@ class CityService{
           }
     }
 
+
+    async bulkCreateCity(data){
+      try {
+         const cities = await this.cityRepository.bulkCreateCity(data);
+         return cities;
+      } catch (error) {
+         console.log(`error from service layer: ${error}`)
+         throw error;
+      }
+    }
+
     async deleteCity(cityId){
         try {
             const response = await this.cityRepository.deleteCity(cityId);

@@ -21,6 +21,16 @@ class CityRepository{
         }
     }
 
+    async bulkCreateCity(cities){
+        try {
+            
+            const citites = await City.bulkCreate([...cities])
+            return citites;
+        } catch (error) {
+            console.log(`error from repo layer: ${error}`)
+            throw error;
+        }
+    }
     async deleteCity(cityId){
          
         try {
