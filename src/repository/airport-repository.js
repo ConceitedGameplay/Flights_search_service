@@ -76,12 +76,14 @@ async getAirport(airportId){
 async getAllAirports(filter){      //can be empty also
    
     try {
-         if(filter.name){
+         if(filter.cityId){
             const airports = await Airport.findAll({
                 where:{
-                    name:{
-                        [Op.startsWith]:filter.name
-                    }
+                    // name:{
+                    //     [Op.startsWith]:filter.name
+                    // },
+                    cityId: filter.cityId
+
                 }
             })
              return airports

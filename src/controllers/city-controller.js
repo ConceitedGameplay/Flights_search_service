@@ -32,7 +32,7 @@ const bulkCreate = async(req,res)=>{
 
         const cities = await cityService.bulkCreateCity(req.body.cities);
 
-        return res.status(200).json({
+        return res.status(201).json({
             data:cities,
             success:true,
             message:"successfully created the cities",
