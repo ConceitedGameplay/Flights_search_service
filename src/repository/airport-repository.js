@@ -22,9 +22,9 @@ async createAirport({name,cityId}){
     }
 }
 
-async bulkCreateAirport(airports){
+async bulkCreateAirport(data){
     try {
-        const airports = await Airport.bulkCreate([...airports])
+        const airports = await Airport.bulkCreate([...data])
         return airports;
     } catch (error) {
         console.log(`error from repo layer : ${error}`)
