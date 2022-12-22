@@ -63,4 +63,5 @@ npx sequelize model:generate --name Airport --attributes name:String,address:Str
 
 ```
 npx sequelize  seed:generate --name add-airplanes
+npx sequelize db:seed:all
 ```
