@@ -2,7 +2,7 @@ const express =  require("express");
 const {PORT} = require("./config/severConfig")
 const bodyParser = require("body-parser")
 const ApiRoutes = require('./routes/index');
-const {Airport,City} = require("./models/index")
+const {Airport,City,Airplane} = require("./models/index")
 const db = require("./models/index")
 
 const startServer=async()=>{
@@ -38,6 +38,7 @@ const startServer=async()=>{
         // })
         // await city.addAirport(newAirport)
         // console.log(airports)
+    
     })
 } 
 
