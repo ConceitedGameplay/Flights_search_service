@@ -23,6 +23,7 @@ router.get('/airport',AirportController.getAll);
 
 
 //FLIGHT ROUTES
-router.post('/flights',FlightController.create)
+router.post('/flights',FlightController.create);
+router.get('/flights',FlightController.getAll);
 
 module.exports= router;

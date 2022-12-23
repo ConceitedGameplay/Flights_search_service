@@ -13,7 +13,7 @@ class FlightService {
             const airplane = await this.airplaneRepository.getAirplane(
               data.airplaneId
             );
-            const flight = await  this.flightRepository.createFlght({
+            const flight = await  this.flightRepository.createFlight({
               ...data,
               totalSeats:airplane.capacity
             })
@@ -26,6 +26,19 @@ class FlightService {
       throw error;
     }
   }
+
+  async getAllFlightsData(data){
+
+    try {
+      
+      const flights = await this.flightRepository.getAllFlights(data);
+      return flights;
+    } catch (error) {
+      console.log(`error in flights-service layer:${error}`);
+      throw error;
+    }
+  }
+ 
 }
 
 
