@@ -1,6 +1,6 @@
 const express = require('express');
 const {AirportController,FlightController,CityController} = require("../../controllers/index")
-
+const {flightMiddlewares} = require("../../middlewares/index")
 
 const router = express.Router();
 
@@ -23,7 +23,7 @@ router.get('/airports',AirportController.getAll);
 
 
 //FLIGHT ROUTES
-router.post('/flights',FlightController.create);
+router.post('/flights',flightMiddlewares.validatecreateFlight,FlightController.create);
 router.get('/flights',FlightController.getAll);
 
 module.exports= router;
