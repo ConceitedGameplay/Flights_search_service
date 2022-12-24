@@ -16,7 +16,7 @@ class CityRepository{
             });
             return city;
         } catch (error) {
-            console.log(`error from repo layer: ${error}`)
+            console.log(`error from city-repo layer: ${error}`)
             throw error;
         }
     }
@@ -27,7 +27,7 @@ class CityRepository{
             const citites = await City.bulkCreate([...cities])
             return citites;
         } catch (error) {
-            console.log(`error from repo layer: ${error}`)
+            console.log(`error from city-repo layer: ${error}`)
             throw error;
         }
     }
@@ -41,7 +41,7 @@ class CityRepository{
              });
              return true;
         } catch (error) {
-            console.log(`error from repo layer: ${error}`)
+            console.log(`error from city-repo layer: ${error}`)
             throw error;            
         }
     }
@@ -63,7 +63,7 @@ class CityRepository{
               return city
             
         } catch (error) {
-            console.log(`error from repo layer: ${error}`)
+            console.log(`error from city-repo layer: ${error}`)
             throw error;
         }
 
@@ -80,7 +80,7 @@ class CityRepository{
             //const city = await City.findByPk(cityId)
             return city;
         } catch (error) {
-            console.log(`error from repo layer: ${error}`)
+            console.log(`error from city-repo layer: ${error}`)
             throw error;
         }
     }
@@ -100,7 +100,7 @@ class CityRepository{
             const cities = await City.findAll()
             return cities;
         } catch (error) {
-            console.log(`error from repo layer: ${error}`)
+            console.log(`error from city-repo layer: ${error}`)
             throw error;
         }
     }

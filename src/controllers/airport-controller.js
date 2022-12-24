@@ -2,57 +2,172 @@ const {AirportService} = require("../services/index");
 
 const airportService = new AirportService();
 
-const create = async(req,res)=>{
+// const create = async(req,res)=>{
+//     try {
+
+//         const airport = await airportService.createAirport(req.body);
+
+//         return res.status(201).json({
+//             data:airport,
+//             success:true,
+//             message:"successfully created airport",
+//             err:{}
+//         })
+        
+//     } catch (error) {
+//         console.log(`error from airport-controller level :${error}`);
+//            return res.status(500).json({
+//             data:{},
+//             success:false,
+//             message:'not able to create airport',
+//             err:error
+//            })
+//     }
+// }
+
+
+// const bulkCreate=async(req,res)=>{
+//     try {
+
+//         const airports = await airportService.bulkCreateAirport(req.body.airports);
+
+//         return res.status(201).json({
+//             data:airports,
+//             success:true,
+//             message:'successfully created the airports',
+//             err:{}
+//         })
+        
+//     } catch (error) {
+//         console.log(`error from airport-controller level :${error}`);
+//         return res.status(500).json({
+//          data:{},
+//          success:false,
+//          message:'not able to create airports',
+//          err:error
+//         })
+//     }
+// }
+
+// const destroy =async(req,res)=>{
+
+//     try {
+//         const response = await airportService.deleteAirport(req.params.id)
+
+//         return res.status(200).json({
+//             data:response,
+//             success:true,
+//             message:"successfully deleted airport",
+//             err:{}
+//         })
+        
+//     } catch (error) {
+//         console.log(`error from airport-controller level :${error}`);
+//         return res.status(500).json({
+//          data:{},
+//          success:false,
+//          message:'not able to delete airport',
+//          err:error
+//         })
+//     }
+// }
+
+// const get = async(req,res)=>{
+
+//     try {
+//         const airport = await airportService.getAirport(req.params.id);
+
+//         return res.status(200).json({
+//             data:airport,
+//             success:true,
+//             message:"successfully fetched an airport",
+//             err:{}
+//         })
+        
+//     } catch (error) {
+//         console.log(`error from airport-controller level :${error}`);
+//         return res.status(500).json({
+//          data:{},
+//          success:false,
+//          message:'not able to get the airport',
+//          err:error
+//         })
+//     }
+// }
+
+
+// const getAll=async(req,res)=>{
+
+//     try {
+//         const airports = await airportService.getAllAirports(req.query);
+//         return res.status(200).json({
+//             data:airports,
+//             success:true,
+//             message:"successfully fetched the airports",
+//             err:{}
+//         })
+
+//     } catch (error) {
+//         console.log(`error from airport-controller level :${error}`);
+//         return res.status(500).json({
+//          data:{},
+//          success:false,
+//          message:'not able to get the airports',
+//          err:error
+//         })
+//     }
+// }
+
+// const update=async(req,res)=>{
+
+//     try {
+//         const airport = await airportService.updateAirport(req.params.id,req.body);
+
+//         return res.status(200).json({
+//             data:airport,
+//             success:true,
+//             message:"successfully updated the airport",
+//             err:{}
+//         })
+
+//     } catch (error) {
+//         console.log(`error from airport-controller level :${error}`);
+//         return res.status(500).json({
+//          data:{},
+//          success:false,
+//          message:'not able to update the airport',
+//          err:error
+//         })
+//     }
+// }
+
+const create =async(req,res)=>{
     try {
 
-        const airport = await airportService.createAirport(req.body);
-
-        return res.status(201).json({
-            data:airport,
-            success:true,
-            message:"successfully created airport",
-            err:{}
-        })
+                const airport = await airportService.create(req.body);
         
-    } catch (error) {
-        console.log(`error from airport-controller level :${error}`);
-           return res.status(500).json({
-            data:{},
-            success:false,
-            message:'not able to create airport',
-            err:error
-           })
-    }
-}
-
-
-const bulkCreate=async(req,res)=>{
-    try {
-
-        const airports = await airportService.bulkCreateAirport(req.body.airports);
-
-        return res.status(201).json({
-            data:airports,
-            success:true,
-            message:'successfully created the airports',
-            err:{}
-        })
-        
-    } catch (error) {
-        console.log(`error from airport-controller level :${error}`);
-        return res.status(500).json({
-         data:{},
-         success:false,
-         message:'not able to create airports',
-         err:error
-        })
-    }
+                return res.status(201).json({
+                    data:airport,
+                    success:true,
+                    message:"successfully created airport",
+                    err:{}
+                })
+                
+            } catch (error) {
+                console.log(`error from airport-controller level :${error}`);
+                   return res.status(500).json({
+                    data:{},
+                    success:false,
+                    message:'not able to create airport',
+                    err:error
+                   })
+            }
 }
 
 const destroy =async(req,res)=>{
 
     try {
-        const response = await airportService.deleteAirport(req.params.id)
+        const response = await airportService.destroy(req.params.id)
 
         return res.status(200).json({
             data:response,
@@ -75,7 +190,7 @@ const destroy =async(req,res)=>{
 const get = async(req,res)=>{
 
     try {
-        const airport = await airportService.getAirport(req.params.id);
+        const airport = await airportService.get(req.params.id);
 
         return res.status(200).json({
             data:airport,
@@ -95,11 +210,10 @@ const get = async(req,res)=>{
     }
 }
 
-
 const getAll=async(req,res)=>{
 
     try {
-        const airports = await airportService.getAllAirports(req.query);
+        const airports = await airportService.getAll(req.query);
         return res.status(200).json({
             data:airports,
             success:true,
@@ -121,7 +235,7 @@ const getAll=async(req,res)=>{
 const update=async(req,res)=>{
 
     try {
-        const airport = await airportService.updateAirport(req.params.id,req.body);
+        const airport = await airportService.update(req.params.id,req.body);
 
         return res.status(200).json({
             data:airport,
@@ -141,10 +255,9 @@ const update=async(req,res)=>{
     }
 }
 
-
 module.exports={
     create,
-    bulkCreate,
+    // bulkCreate,
     destroy,
     update,
     get,
