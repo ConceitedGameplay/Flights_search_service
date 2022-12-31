@@ -27,12 +27,37 @@ class FlightService {
     }
   }
 
+async getFlight(flightId){
+
+  try {
+    const flight = await this.flightRepository.getFlightData(flightId)
+
+    return flight
+    
+  } catch (error) {
+    console.log(`error in flights-service layer:${error}`);
+    throw error;
+  }
+}
+
   async getAllFlightsData(data){
 
     try {
       
       const flights = await this.flightRepository.getAllFlights(data);
       return flights;
+    } catch (error) {
+      console.log(`error in flights-service layer:${error}`);
+      throw error;
+    }
+  }
+
+  async updateFlight(flightId,data){
+
+    try {
+      const response = await this.flightRepository.updateFlights(flightId,data)
+      return response
+
     } catch (error) {
       console.log(`error in flights-service layer:${error}`);
       throw error;

@@ -46,7 +46,7 @@ const getAll=async(req,res)=>{
         return res.status(SuccessCodes.OK).json({
             data:flights,
             success:true,
-            message:"successfully fetched the flighs",
+            message:"successfully fetched the flights",
             err:{}
         })
 
@@ -62,9 +62,53 @@ const getAll=async(req,res)=>{
     }
 }
 
+const get = async(req,res)=>{
+
+    try {
+        const flight = await flightService.getFlight(req.params.id)
+        return res.status(SuccessCodes.OK).json({
+            data:flight,
+            success:true,
+            message:"successfully fetched the flight",
+            err:{}
+        })
+        
+    } catch (error) {
+        console.log(`error from flight-controller level :${error}`);
+        return res.status(500).json({
+         data:{},
+         success:false,
+         message:'not able to get flights',
+         err:error
+        })
+    }
+}
+
+const update = async(req,res)=>{
+    try {
+        const response = await flightService.updateFlight(req.params.id,req.body)
+        return res.status(SuccessCodes.OK).json({
+            data:response,
+            success:true,
+            message:"successfully updated the flight",
+            err:{}
+        })
+        
+    } catch (error) {
+        console.log(`error from flight-controller level :${error}`);
+        return res.status(500).json({
+         data:{},
+         success:false,
+         message:'not able to update the flight',
+         err:error
+        })
+    }
+}
 
 
 module.exports={
 create,
-getAll
+getAll,
+get,
+update
 }
